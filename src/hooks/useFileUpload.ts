@@ -3,7 +3,6 @@ import { useMutation } from "@tanstack/react-query";
 import { useAccount } from "wagmi";
 import { preflightCheck } from "@/utils/preflightCheck";
 import { useSynapse } from "@/providers/SynapseProvider";
-import { Synapse } from "@filoz/synapse-sdk";
 
 export type UploadedInfo = {
   fileName?: string;
@@ -122,7 +121,7 @@ export const useFileUpload = () => {
             }));
           }
         },
-        onPieceConfirmed: (pieceIds) => {
+        onPieceConfirmed: () => {
           setStatus("🌳 Data pieces added to dataset successfully");
           setProgress(90);
         },
