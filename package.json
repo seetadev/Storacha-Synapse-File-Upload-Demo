@@ -41,8 +41,8 @@
     "react-loader-spinner": "^6.1.6",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "viem": "~2.9.23",
-    "wagmi": "^2.5.20"
+    "viem": "^2.32.0",
+    "wagmi": "^2.15.7"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",
