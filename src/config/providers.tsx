@@ -4,6 +4,7 @@ import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./wagmiProviderConfig";
 import { rainbowkitConfig } from "./rainbowkitConfig";
+import { SynapseProvider } from "@/providers/SynapseProvider";
 
 const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <WagmiProvider config={rainbowkitConfig}>
@@ -14,7 +15,9 @@ const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => (
           accentColorForeground: "black",
         })}
       >
+        <SynapseProvider>
         {children}
+        </SynapseProvider>
       </RainbowKitProvider>
     </QueryClientProvider>
   </WagmiProvider>

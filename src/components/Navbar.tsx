@@ -1,16 +1,22 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { Link } from "react-router-dom";
+import { useAccount } from "wagmi";
 
-export default function Navbar(): JSX.Element {
+type NavbarProps = {
+  balance?: string;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ balance }) => {
+  const { isConnected } = useAccount();
   return (
     <nav className="sticky top-4 flex items-center justify-between py-3 px-5 rounded-full mt-4 w-full max-w-[1200px] mx-auto bg-gray-600/20 backdrop-blur-lg z-[100]">
-      <Link to="/">
-     <h1 className="font-extrabold lg:text-2xl text-sm"> DeciReport</h1>
-      </Link>
+        <h1 className="font-extrabold lg:text-2xl text-sm"> Storacha Synapse File Upload Demo</h1>
+        {isConnected && balance && <p>USDFC Balance - {balance + "$"} </p>}
       <ConnectButton
-        showBalance={false}
+        showBalance={true}
         chainStatus={{ smallScreen: "none", largeScreen: "icon" }}
       />
     </nav>
   );
 }
+
+export default Navbar;
